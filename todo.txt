@@ -1,0 +1,23 @@
+FormObject
+    > id
+    > type
+        - input
+            * label
+            * id
+        - select
+            * label
+            * id
+            * options
+        - textarea
+            * label
+            * id
+        - checkbox
+            * label
+            * id
+            * options
+    > label
+    > required
+    > data-not-valid-message
+
+
+FormObjectGenerator
