@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
     <div v-for="item in form.items">
-      <form-input v-if="item.type === 'input'" v-bind:data="item" />
+      <form-input v-on:change="inputChange" v-if="item.type === 'input'" v-bind:data="item" />
       <form-dropdown v-if="item.type === 'dropdown'" v-bind:data="item" />
       <form-checkbox v-if="item.type === 'checkbox'" v-bind:data="item" />
       <br />
@@ -26,6 +26,7 @@ export default {
       form: {
         items: [
           { id: 'name', type: 'input', label: 'Name' },
+          { id: 'asd', type: 'input', label: 'MOI' },
           { id: 'email', type: 'input', label: 'Email' },
           {
             id: 'status',
@@ -33,6 +34,7 @@ export default {
             label: 'Status',
             options: [
               { label: 'Student', value: 'student' },
+              { label: 'gay', value: 'lol' },
               { label: 'Supporter', value: 'supporter' },
             ],
           },
@@ -49,12 +51,9 @@ export default {
       },
     };
   },
-  computed: {
-    formInputs() {
-      return this.form.items.filter(item => (item.type === 'input'));
-    },
-    formDropdowns() {
-      return this.form.items.filter(item => (item.type === 'input'));
+  methods: {
+    inputChange(event) {
+      console.log(event);
     },
   },
 };
